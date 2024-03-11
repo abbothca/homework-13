@@ -1,0 +1,55 @@
+html,
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    line-height: 1.64;
+
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    background-color: #e6d7fa;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 20px 40px;
+}
+
+h1, h2, h3{
+    margin: 0;
+    color: #653393;
+}
+
+.autor{
+    color: #653393;
+}
+
+.main{
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 30px 40px;
+}
+
+.task{
+    margin: 20px 0;
+}
+
+.menu{
+    list-style-type: lower-latin;
+}
+
+ul p{
+    margin: 0;
+}
+
+figcaption{
+    font-style: italic;
+    text-align: center;
+    color: #653393;
+}
+
+a{
+    color: #653393;
+    font-weight: 700;
+    text-decoration: none;
+}

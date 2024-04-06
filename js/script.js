@@ -10,12 +10,7 @@ let spanToState = switcherButton.querySelector(".switcher__to-state");
 
 //якщо в localStorage вже є запис про активний стан: задаємо початковий стан сторінки - покажемо потрібний з блоків
 let activeState = localStorage.getItem("state-active");
-if (activeState) {
-    updateSwitcher(toggleState(activeState));
-    //окремо треба прорахувати чи треба клас при завантаженні сторінки
-    (activeState === "on")
-        ? main.classList.add("is-dark") : main.classList.remove("is-dark");
-};
+ activeState ? updateSwitcher(toggleState(activeState)) : false; 
 
 
 //обробник на подію click для кнопки
@@ -34,14 +29,15 @@ function toggleState(state) {
 //оновлюємо стан сторінки
 function updateSwitcher(state) {
     //змінюємо видімість блоків з часом останнього вмикання/вимикання
-    elementDOMTimeInfo[state].hidden = false;
+    elementDOMTimeInfo[state].hidden = false; 
     elementDOMTimeInfo[toggleState(state)].hidden = true;
     //клас до body
-    main.classList.toggle("is-dark");
+    (state === "off")
+        ? main.classList.add("is-dark") : main.classList.remove("is-dark");
     spanToState.textContent = state;    //змінюємо напис на кнопці
     //оновлюємо час попередної дії для видимого блоку
     elementDOMTimeInfo[state].querySelector('.switcher__time').textContent
-        = getFormattedTime(+localStorage.getItem(toggleState(state)));
+        = getFormattedTime(+localStorage.getItem(toggleState(state))); 
 }
 
 //додаємо попереду "0", якщо маємо одноцифрове число, щоб отримати двоцифрове
